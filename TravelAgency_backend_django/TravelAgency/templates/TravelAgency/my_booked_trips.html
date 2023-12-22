@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Booked Trips</title>
+</head>
+<body>
+    <h1>My Booked Trips</h1>
+
+    <!-- Add a search form to filter booked trips -->
+    <form method="get">
+        <input type="text" name="search" placeholder="Search by destination...">
+        <button type="submit">Search</button>
+    </form>
+
+    {% if user_bookings %}
+        <ul>
+            {% for booking in user_bookings %}
+                <li>
+                    <strong>Destination:</strong> {{ booking.destination.name }}<br>
+                    <strong>Date:</strong> {{ booking.date }}<br>
+                    <strong>Amount persons:</strong> {{ booking.amount_persons }}<br>
+                    <!-- Add more booking details as needed -->
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>There are not any trips yet.</p>
+    {% endif %}
+    <div>
+        <a href="{% url 'destinations_list' %}">Back to Destination List</a>
+    </div>
+</body>
+</html>

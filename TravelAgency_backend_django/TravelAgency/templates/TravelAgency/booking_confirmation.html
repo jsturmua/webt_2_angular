@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Booking Confirmation</title>
+</head>
+<body>
+    <h1>Booking Confirmation</h1>
+    <p>Your booking for {{ booking.destination.name }} is confirmed.</p>
+    <p>Booking ID: {{ booking.id }}</p>
+    <p>Date: {{ booking.date }}</p>
+    <p>Name: {{ booking.name }}</p>
+    <p>Age: {{ booking.age }}</p>
+    <p>PassportNumber: {{ booking.passportnumber }}</p>
+    <!-- Add any additional confirmation information you want to display -->
+    <div>
+        <a href="{% url 'my_booked_trips' %}">View your bookings</a>
+    </div>
+    <div>
+        <a href="{% url 'destinations_list' %}">Back to Destination List</a>
+    </div>
+</body>
+</html>

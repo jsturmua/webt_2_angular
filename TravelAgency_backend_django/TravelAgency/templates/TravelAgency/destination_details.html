@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ destination.title }} Details</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <h1>{{ destination.name }} Details</h1>
+    <p><strong>Location:</strong> {{ destination.location }}</p>
+    <p><strong>Description:</strong> {{ destination.description }}</p>
+    <p><strong>Price:</strong> ${{ destination.price }}</p>
+    <p><strong>Rating:</strong> {{ destination.rating }}</p>
+
+    <h2>Features:</h2>
+    <ul>
+        {% for feature in destination.features.all %}
+            <li>{{ feature.name }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Image:</h2>
+    {% if destination.image %}
+        <img src="{{ destination.image.url }}" alt="{{ destination.title }} Image">
+    {% else %}
+        <p>No image available.</p>
+    {% endif %}
+    <form method="post" action="{% url 'book_destination' destination.id %}">
+        {% csrf_token %}
+        <input type="submit" value="Buy/Book Now">
+    </form>
+    <div>
+        <a href="{% url 'destinations_list' %}">Back to Destination List</a>
+    </div>
+</body>
+</html>
