@@ -1,14 +1,5 @@
-<!-- destination.component.html -->
-<div>
-    <h2>Destinations</h2>
-    <div *ngIf="destinations.length === 0">
-      <p>No destinations available</p>
-    </div>
-    <div *ngFor="let destination of destinations">
-      <div>
-        <h3>{{ destination.name }}</h3>
-      </div>
-      <hr />
-    </div>
+<div class="destination-grid">
+  <div *ngFor="let destination of destinations" class="destination-box" [ngStyle]="{ 'background-image': destination.image ? 'url(' + destination.image + ')' : 'none' }">
+    <h2><a [routerLink]="['/destination', destination.id]">{{ destination.name }}</a></h2>
   </div>
-  
+</div>

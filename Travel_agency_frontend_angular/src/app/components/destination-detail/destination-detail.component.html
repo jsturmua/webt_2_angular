@@ -1,1 +1,25 @@
-<p>destination-detail works!</p>
+<div class="destination-details" *ngIf="destination">
+  <h2>{{ destination.name }}</h2>
+  <!-- <div *ngIf="destination.imageUrl">
+    <img [src]="destination.imageUrl" alt="Destination Image" />
+  </div> -->
+  <div class="details-section" *ngIf="destination.description">
+    <h3>Description</h3>
+    <p>{{ destination.description }}</p>
+  </div>
+  <div class="details-section" *ngIf="destination.rating !== undefined">
+    <h3>Rating</h3>
+    <p>Rating: {{ destination.rating }}/5</p>
+  </div>
+  <!-- <div class="details-section" *ngIf="destination.features && destination.features.length">
+    <h3>Features</h3>
+    <ul>
+      <li *ngFor="let feature of destination.features">{{ feature }}</li>
+    </ul>
+  </div> -->
+  <!-- Other details based on your Destination model -->
+</div>
+
+<div *ngIf="!destination">
+  <p>Loading destination details...</p>
+</div>
