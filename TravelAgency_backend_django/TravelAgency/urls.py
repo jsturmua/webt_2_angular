@@ -3,19 +3,18 @@ from django.urls import path, include
 from . import views
 from django.contrib.auth.views import *
 from rest_framework.routers import DefaultRouter
-from .views import FeatureViewSet, DestinationViewSet, BookingViewSet, UserViewSet
+from .views import FeatureViewSet, DestinationViewSet, BookingViewSet
+from .views import UserLoginView
 
 router = DefaultRouter()
 router.register(r'features', FeatureViewSet)
 router.register(r'destinations', DestinationViewSet)
 router.register(r'bookings', BookingViewSet)
-router.register(r'users', UserViewSet)
-
 
 urlpatterns = [
     # Your other URLs
     path('api/', include(router.urls)),
-
+    path('api/login/', UserLoginView.as_view(), name='user_login'),
     path('destinations/', views.destination_list, name='destinations_list'),
     path('', views.base, name='base'),
     path('login/', views.login_view, name='login'),

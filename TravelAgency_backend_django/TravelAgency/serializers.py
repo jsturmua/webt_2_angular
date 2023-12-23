@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from .models import Feature, Destination, Booking
-from django.contrib.auth.models import User
+from django.contrib.auth import authenticate
 
 
 class FeatureSerializer(serializers.ModelSerializer):
@@ -20,8 +20,23 @@ class BookingSerializer(serializers.ModelSerializer):
         model = Booking
         fields = '__all__'
 
-class UserSerializer(serializers.ModelSerializer):
 
-    class Meta:
-        model = User
-        fields = ['id', 'username']
+class UserLoginSerializer(serializers.Serializer):
+    username = serializers.CharField()
+    password = serializers.CharField()
+
+    def validate(self, data):
+        username = data.get('username')
+        password = data.get('password')
+
+        if username and password:
+            user = authenticate(username=username, password=password)
+
+            if user:
+                if not user.is_active:
+                    raise serializers.ValidationError("User account is disabled.")
+                return user
+            else:
+                raise serializers.ValidationError("Incorrect username or password.")
+        else:
+            raise serializers.ValidationError("Must include 'username' and 'password'.")

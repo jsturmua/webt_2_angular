@@ -7,10 +7,12 @@ from django.contrib.auth.forms import AuthenticationForm
 from .forms import RegistrationForm, BookingForm
 from .models import Destination, Booking
 from .forms import BookingForm  # Create a form for booking if needed
-
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
 from rest_framework import viewsets
 from .models import Feature, Destination, Booking
-from .serializers import FeatureSerializer, DestinationSerializer, BookingSerializer, UserSerializer
+from .serializers import FeatureSerializer, DestinationSerializer, BookingSerializer, UserLoginSerializer
 
 class FeatureViewSet(viewsets.ModelViewSet):
     queryset = Feature.objects.all()
@@ -24,9 +26,14 @@ class BookingViewSet(viewsets.ModelViewSet):
     queryset = Booking.objects.all()
     serializer_class = BookingSerializer
 
-class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
+class UserLoginView(APIView):
+    def post(self, request, format=None):
+        serializer = UserLoginSerializer(data=request.data)
+        if serializer.is_valid():
+            user = serializer.validated_data
+            # Perform any actions upon successful login (e.g., generate token, set session, etc.)
+            return Response({'detail': 'Login successful'}, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 def destination_list(request):
