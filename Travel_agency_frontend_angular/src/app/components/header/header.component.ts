@@ -1,12 +1,20 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, RouterLink],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+  constructor(private router: Router) { }
 
+  onLoginClick(): void {
+    // Function to handle login button click
+    this.router.navigate(['/login']);
+  }
 }

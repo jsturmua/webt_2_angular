@@ -11,15 +11,14 @@
     <h3>Rating</h3>
     <p>Rating: {{ destination.rating }}/5</p>
   </div>
-  <!-- <div class="details-section" *ngIf="destination.features && destination.features.length">
+  <div class="details-section" *ngIf="destination.features && destination.features.length">
     <h3>Features</h3>
     <ul>
-      <li *ngFor="let feature of destination.features">{{ feature }}</li>
+      <li *ngFor="let feature of destination.features">{{ feature.name }}</li>
     </ul>
-  </div> -->
-  <!-- Other details based on your Destination model -->
+  </div>
 </div>
 
 <div *ngIf="!destination">
-  <p>Loading destination details...</p>
+  <p>No destinations available</p>
 </div>

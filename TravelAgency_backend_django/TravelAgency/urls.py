@@ -3,12 +3,14 @@ from django.urls import path, include
 from . import views
 from django.contrib.auth.views import *
 from rest_framework.routers import DefaultRouter
-from .views import FeatureViewSet, DestinationViewSet, BookingViewSet
+from .views import FeatureViewSet, DestinationViewSet, BookingViewSet, UserViewSet
 
 router = DefaultRouter()
 router.register(r'features', FeatureViewSet)
 router.register(r'destinations', DestinationViewSet)
 router.register(r'bookings', BookingViewSet)
+router.register(r'users', UserViewSet)
+
 
 urlpatterns = [
     # Your other URLs

@@ -10,7 +10,7 @@ from .forms import BookingForm  # Create a form for booking if needed
 
 from rest_framework import viewsets
 from .models import Feature, Destination, Booking
-from .serializers import FeatureSerializer, DestinationSerializer, BookingSerializer
+from .serializers import FeatureSerializer, DestinationSerializer, BookingSerializer, UserSerializer
 
 class FeatureViewSet(viewsets.ModelViewSet):
     queryset = Feature.objects.all()
@@ -24,7 +24,9 @@ class BookingViewSet(viewsets.ModelViewSet):
     queryset = Booking.objects.all()
     serializer_class = BookingSerializer
 
-
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
 
 
 def destination_list(request):
