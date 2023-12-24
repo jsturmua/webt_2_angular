@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -19,12 +19,13 @@ export class LoginComponent {
   authService: AuthService = inject(AuthService)
 
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   onSubmit(): void {
     this.authService.login(this.username, this.password).then(
         (response: any) => {
           // Handle successful login response
+          this.router.navigate(['']);
           console.log('Login successful', response);
           // Perform actions like storing tokens, redirecting to dashboard, etc.
         },
