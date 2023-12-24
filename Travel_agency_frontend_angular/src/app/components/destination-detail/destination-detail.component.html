@@ -17,6 +17,7 @@
       <li *ngFor="let feature of destination.features">{{ feature.name }}</li>
     </ul>
   </div>
+  <button (click)="navigateToBooking()">Book Now</button>
 </div>
 
 <div *ngIf="!destination">

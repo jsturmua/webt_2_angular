@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'TravelAgency',
     'rest_framework',
     'corsheaders',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [

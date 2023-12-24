@@ -15,6 +15,8 @@ urlpatterns = [
     # Your other URLs
     path('api/', include(router.urls)),
     path('api/login/', UserLoginView.as_view(), name='user_login'),
+    path('api/signup/', views.SignUpView.as_view(), name='signup'),  # Endpoint for user signup
+    
     path('destinations/', views.destination_list, name='destinations_list'),
     path('', views.base, name='base'),
     path('login/', views.login_view, name='login'),
