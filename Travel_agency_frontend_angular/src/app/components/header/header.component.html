@@ -1,0 +1,15 @@
+<nav>
+    <div class="header-container">
+      <ul>
+        <li><a routerLink="/">Home</a></li>
+        <li><a routerLink="/destinations">Destinations</a></li>
+        <li><a *ngIf="authService.isLoggedIn()" routerLink="/mybookings">My bookings</a></li>
+      </ul>
+      <div class="auth-buttons">
+        <button *ngIf="!authService.isLoggedIn()" (click)="onLoginClick()">Login</button>
+        <button *ngIf="!authService.isLoggedIn()" (click)="onSignUpClick()">SignUp</button>
+      </div>
+      <button *ngIf="authService.isLoggedIn()" (click)="onLogoutClick()">Logout</button>
+    </div>
+  </nav>
+  

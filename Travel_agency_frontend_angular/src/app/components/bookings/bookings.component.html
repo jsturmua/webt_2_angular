@@ -1,0 +1,30 @@
+<form [formGroup]="bookingForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="date">Date:</label>
+      <input type="date" id="date" formControlName="date" required>
+    </div>
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" id="name" formControlName="name" required>
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" formControlName="email" required>
+    </div>
+    <div>
+      <label for="passportnumber">Passport Number:</label>
+      <input type="text" id="passportnumber" formControlName="passportnumber" required>
+    </div>
+    <div>
+      <label for="age">Age:</label>
+      <input type="number" id="age" formControlName="age" required>
+    </div>
+    <div>
+      <label for="amount_persons">Number of Persons:</label>
+      <input type="number" id="amount_persons" formControlName="amount_persons" required>
+    </div>
+    <!-- Add other form fields as per your Booking model -->
+  
+    <button type="submit">Submit</button>
+  </form>
+  

@@ -1,0 +1,22 @@
+/* your-component.component.css */
+
+.your-component {
+    /* Styles for the container div */
+    background-color: lightgray;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  .your-component h1 {
+    /* Styles for the h1 element within your-component */
+    color: blue;
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .your-component p {
+    /* Styles for the p element within your-component */
+    color: black;
+    font-size: 16px;
+  }
+  

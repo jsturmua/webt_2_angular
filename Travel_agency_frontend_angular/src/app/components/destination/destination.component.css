@@ -1,0 +1,12 @@
+.destination-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+.destination-box {
+    border: 1px solid #ccc;
+    padding: 80px;
+    text-align: center;
+    background-size: cover;
+    color: white;
+}

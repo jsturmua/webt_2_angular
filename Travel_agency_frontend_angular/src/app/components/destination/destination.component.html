@@ -1,0 +1,5 @@
+<div class="destination-grid">
+  <div *ngFor="let destination of destinations" class="destination-box" [ngStyle]="{ 'background-image': destination.image ? 'url(' + destination.image + ')' : 'none' }">
+    <h2><a [routerLink]="['/destination', destination.id]">{{ destination.name }}</a></h2>
+  </div>
+</div>

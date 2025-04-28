@@ -1,0 +1,35 @@
+/* Updated CSS to handle alignment */
+.header-container {
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 20px;
+    justify-content: space-between;
+  }
+  
+  .header-container ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .header-container li {
+    padding: 5px;
+  }
+  
+  .header-container .auth-buttons {
+    display: flex; /* Use flexbox for layout */
+    gap: 10px; /* Adjust spacing between buttons */
+  }
+  
+  .header-container button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
